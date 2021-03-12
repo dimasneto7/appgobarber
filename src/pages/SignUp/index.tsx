@@ -37,7 +37,8 @@ const SignUp: React.FC = () => {
   const emailInputRef = useRef<TextInput>(null);
   const passwordInputRef = useRef<TextInput>(null);
 
-  const handleSignUp = useCallback(async (data: SignUpFormData) => {
+  const handleSignUp = useCallback(
+    async (data: SignUpFormData) => {
       try {
         formRef.current?.setErrors({});
 
@@ -87,8 +88,8 @@ const SignUp: React.FC = () => {
         enabled
       >
         <ScrollView
-          keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ flex: 1 }}
+          keyboardShouldPersistTaps="handled"
         >
           <Container>
             <Image source={logoImg} />
@@ -104,9 +105,7 @@ const SignUp: React.FC = () => {
                 icon="user"
                 placeholder="Nome"
                 returnKeyType="next"
-                onSubmitEditing={() => {
-                  emailInputRef.current?.focus()
-                }}
+                onSubmitEditing={() => emailInputRef.current?.focus()}
               />
 
               <Input
@@ -118,9 +117,7 @@ const SignUp: React.FC = () => {
                 icon="mail"
                 placeholder="E-mail"
                 returnKeyType="next"
-                onSubmitEditing={() => {
-                  passwordInputRef.current?.focus()
-                }}
+                onSubmitEditing={() => passwordInputRef.current?.focus()}
               />
 
               <Input
